@@ -32,7 +32,14 @@
                 </tr>
             </thead>
 
-
+        <?php
+            while($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?= $row['title'] ?></td>
+                <td><?= $row['author'] ?></td>
+                <td></td>
+            </tr>
+        <?php endwhile; ?>
         </table>
     </div>
 
