@@ -13,13 +13,13 @@
     <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
         <form action="process.php" method="POST">
             <div class="form-group">
-                <label for="bookTitle">Book Title</label>
-                <input type="text" name="bookTitle" class="form-control" value="Enter the book title" required>
+                <label for="title">Book Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Enter the book title">
             </div>
 
             <div class="form-group">
                 <label for="author">Author</label>
-                <input type="text" name="author" class="form-control" value="Enter the author">
+                <input type="text" name="author" class="form-control" placeholder="Enter the author">
             </div>
 
             <div class="form-group text-center">
