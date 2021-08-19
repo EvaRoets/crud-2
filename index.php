@@ -10,6 +10,32 @@
 </head>
 <body>
 <?php require "process.php"; ?>
+<!-- display existing records-->
+<?php
+    $mysqli = new mysqli('localhost', 'root', '', 'crud-2') or die(mysqli_error($mysqli));
+    $result = $mysqli->query("SELECT * FROM data") or die(mysqli_error($mysqli));
+
+//    var_dump("<pre>");
+//    var_dump($result->fetch_assoc());
+//    var_dump($result->fetch_assoc());
+//    var_dump($result->fetch_assoc());
+//    var_dump("</pre>");
+?>
+<!-- add table -->
+    <div class="= "row justify-content-center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+
+
+        </table>
+    </div>
+
     <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
         <form action="process.php" method="POST">
             <div class="form-group">

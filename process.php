@@ -1,6 +1,6 @@
 <?php
 //establish connection
-$mysql = new mysqli('localhost', 'root', '', 'crud-2') or die(mysqli_error($mysql));
+$mysqli = new mysqli('localhost', 'root', '', 'crud-2') or die(mysqli_error($mysql));
 
 //check if addBook button is clicked
 if (isset($_POST['addBook'])){
@@ -10,5 +10,5 @@ if (isset($_POST['addBook'])){
 
     //insert entries in database or display syntax error
     $insert = "INSERT INTO data (title , author) VALUES ('$title', '$author')";
-    $mysql->query($insert) or die($mysql->error);
+    $mysqli->query($insert) or die($mysqli->error);
 }
