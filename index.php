@@ -11,7 +11,7 @@
 <body>
 <?php require "process.php"; ?>
     <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
-        <form action="" method="POST">
+        <form action="process.php" method="POST">
             <div class="form-group">
                 <label for="bookTitle">Book Title</label>
                 <input type="text" name="bookTitle" class="form-control" value="Enter the book title" required>
