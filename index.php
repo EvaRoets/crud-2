@@ -50,7 +50,7 @@
 
             <div class="form-group text-center">
                 <?php if ($update == true): ?>
-                    <button type="submit" name="update" class="btn btn-info">Update</button>
+                    <button type="submit" name="update" class="btn btn-warning">Update</button>
                 <?php else: ?>
                     <button type="submit" name="addBook" class="btn btn-success">Add book</button>
                 <?php endif; ?>

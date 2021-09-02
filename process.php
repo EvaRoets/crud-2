@@ -19,7 +19,7 @@ if (isset($_POST['addBook'])) {
     $insert = "INSERT INTO data (title , author) VALUES ('$title', '$author')";
     $mysqli->query($insert) or die($mysqli->error);
 
-    $_SESSION['message'] = "Your book has been added to your list";
+    $_SESSION['message'] = "A list without books is like a body without a soul. <br> Your book has been added!";
     $_SESSION['msg_type'] = "success";
 
     // redirect to index
@@ -33,7 +33,7 @@ if (isset($_GET['delete'])) {
     $delete = "DELETE FROM data WHERE id=$id";
     $mysqli->query($delete) or die($mysqli->error);
 
-    $_SESSION['message'] = "Your book has been deleted";
+    $_SESSION['message'] = "Your book has been deleted! Hopefully that was not a mistake!";
     $_SESSION['msg_type'] = "danger";
 
     // redirect to index
@@ -60,6 +60,12 @@ if (isset($_POST["update"])){
     $title = $_POST['title'];
     $author = $_POST['author'];
 
-    $updateQuery = "UPDATE data SET title = '$title', location='$location' WHERE id=$id";
+    $updateQuery = "UPDATE data SET title = '$title', author='$author' WHERE id=$id";
     $mysqli->query($updateQuery) or die($mysqli->error);
+
+    $_SESSION['message'] = "Hooray, your book entry has been updated!";
+    $_SESSION['msg_type'] = "warning";
+
+    // redirect to index
+    header("location: index.php");
 }
