@@ -1,9 +1,13 @@
 <?php
-
 session_start();
 
 //establish connection
 $mysqli = new mysqli('localhost', 'root', '', 'crud-2') or die(mysqli_error($mysqli));
+
+// set variables for edit click
+$update = false;
+$title = "";
+$author = "";
 
 //check if addBook button is clicked
 if (isset($_POST['addBook'])) {
@@ -26,12 +30,26 @@ if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
 
     $delete = "DELETE FROM data WHERE id=$id";
-    $result = $mysqli->query($delete) or die($mysqli->error);
+    $mysqli->query($delete) or die($mysqli->error);
 
     $_SESSION['message'] = "Your book has been deleted";
     $_SESSION['msg_type'] = "danger";
 
     // redirect to index
     header("location: index.php");
+}
+
+// check if edit button is clicked
+if (isset($_GET["edit"])){
+    $id = $_GET["edit"];
+    $update = true;
+    $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error());
+
+    // check if record exists
+    if (count($result)==1){
+        $row = $result->fetch_array();
+        $title = $row["title"];
+        $author = $row["author"];
+    }
 }
 

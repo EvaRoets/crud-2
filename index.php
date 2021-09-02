@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>You booklist</title>
+    <title>Your list of books</title>
 </head>
 <body>
-
     <?php require_once "process.php"; ?>
 
     <!--add action message-->
@@ -28,7 +27,7 @@
 <div class="container">
     <?php
     $mysqli = new mysqli('localhost', 'root', '', 'crud-2') or die(mysqli_error($mysqli));
-    $result = $mysqli->query("SELECT * FROM data") or die(mysqli_error($mysqli));
+    $result = $mysqli->query("SELECT * FROM data") or die($mysqli->error);
     ?>
 
     <!-- add form-->
@@ -36,19 +35,28 @@
         <form action="process.php" method="POST">
             <div class="form-group">
                 <label for="title">Book Title</label>
-                <input type="text" name="title" class="form-control" placeholder="Enter the book title">
+                <input type="text" name="title" class="form-control"
+                       value="<?= $title; ?>"
+                       placeholder="Enter the book title">
             </div>
 
             <div class="form-group">
                 <label for="author">Author</label>
-                <input type="text" name="author" class="form-control" placeholder="Enter the author">
+                <input type="text" name="author" class="form-control"
+                       value="<?= $author; ?>"
+                       placeholder="Enter the author">
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" name="addBook" class="btn btn-success">Add book</button>
+                <?php if ($update == true): ?>
+                    <button type="submit" name="update" class="btn btn-info">Update</button>
+                <?php else: ?>
+                    <button type="submit" name="addBook" class="btn btn-success">Add book</button>
+                <?php endif ?>
             </div>
         </form>
     </div>
+
 
     <!-- add table -->
     <div class="row justify-content-center">
