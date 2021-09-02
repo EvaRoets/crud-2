@@ -53,3 +53,13 @@ if (isset($_GET["edit"])){
         $author = $row["author"];
     }
 }
+
+//check if update button is clicked
+if (isset($_POST["update"])){
+    $id = $_POST["id"];
+    $title = $_POST['title'];
+    $author = $_POST['author'];
+
+    $updateQuery = "UPDATE data SET title = '$title', location='$location' WHERE id=$id";
+    $mysqli->query($updateQuery) or die($mysqli->error);
+}
