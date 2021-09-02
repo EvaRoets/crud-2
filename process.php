@@ -44,9 +44,10 @@ if (isset($_GET["edit"])){
     $id = $_GET["edit"];
     $update = true;
     $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error());
+    var_dump($result);
 
     // check if record exists
-    if (count($result)==1){
+    if (count(array($result))==1){
         $row = $result->fetch_array();
         $title = $row["title"];
         $author = $row["author"];
