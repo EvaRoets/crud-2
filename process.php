@@ -5,6 +5,7 @@ session_start();
 $mysqli = new mysqli('localhost', 'root', '', 'crud-2') or die(mysqli_error($mysqli));
 
 // set variables for edit click
+$id = 0;
 $update = false;
 $title = "";
 $author = "";
@@ -44,7 +45,6 @@ if (isset($_GET["edit"])){
     $id = $_GET["edit"];
     $update = true;
     $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error());
-    var_dump($result);
 
     // check if record exists
     if (count(array($result))==1){
@@ -53,4 +53,3 @@ if (isset($_GET["edit"])){
         $author = $row["author"];
     }
 }
-

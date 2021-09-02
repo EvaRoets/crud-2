@@ -21,7 +21,7 @@
             unset($_SESSION["message"]);
             ?>
         </div>
-    <?php endif ?>
+    <?php endif; ?>
 
 <!-- display existing records-->
 <div class="container">
@@ -33,6 +33,7 @@
     <!-- add form-->
     <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
         <form action="process.php" method="POST">
+            <input type="hidden" name="id" value="<?= $id; ?>" >
             <div class="form-group">
                 <label for="title">Book Title</label>
                 <input type="text" name="title" class="form-control"
@@ -52,7 +53,7 @@
                     <button type="submit" name="update" class="btn btn-info">Update</button>
                 <?php else: ?>
                     <button type="submit" name="addBook" class="btn btn-success">Add book</button>
-                <?php endif ?>
+                <?php endif; ?>
             </div>
         </form>
     </div>
