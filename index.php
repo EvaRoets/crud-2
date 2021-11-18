@@ -109,22 +109,16 @@ if (isset($_SESSION["message"])): ?>
     </div>
 </div>
 <footer>
-    <div class="p-4 text-center bg-image sticky-bottom"
-         style="
-      background-image: url('./images/books.jpg');
-      height: 40px;
-      margin-top: 80px;
-    ">
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);
-            <div class=" d-flex justify-content-center align-items-center h-100
-        ">
-        <div class="text-white">
-            Copyright &copy;
-            <script>document.write(new Date().getFullYear())</script>
-            Eva Roets
+    <div class="p-4 text-center bg-image sticky-bottom" style="background-image: url('./images/books.jpg'); height: 40px; margin-top: 80px;">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    Copyright &copy;
+                    <script>document.write(new Date().getFullYear())</script>
+                    Eva Roets
         </div>
-    </div>
-    </div>
+            </div>
+        </div>
     </div>
 
 </footer>
